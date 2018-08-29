@@ -19,9 +19,9 @@ pipeline {
                           docker stop ${CONTAINER_NAME}
                           docker rm ${CONTAINER_NAME}
                           docker build -t ${IMAGE_NAME} .
-                          docker run -d -p 80:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}
-                          CONTAINER_IP=$(docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" ${CONTAINER_NAME})
-                          echo CONTAINER_IP=${CONTAINER_IP}'''
+                          docker run -d -p 80:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}'''
+                     sh   "CONTAINER_IP=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ${CONTAINER_NAME})"
+                     sh    "echo CONTAINER_IP=${CONTAINER_IP}"
                    
             }
         }
