@@ -12,7 +12,8 @@ pipeline {
         }
         stage('build') {
             steps{
-                 sh 'echo build'
+                 sh 'docker build -t counter-${BRANCH_NAME}-img .'
+                 sh 'docker run -d -p 80:80 --name counter-${BRANCH_NAME} counter-${BRANCH_NAME}-img'
             }
         }
     }
