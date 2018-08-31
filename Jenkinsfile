@@ -21,7 +21,7 @@ pipeline {
                             docker rm ${CONTAINER_NAME}
                           fi
                           docker build -t ${IMAGE_NAME} .
-                          CID=$(docker run -d -p 80:80  --name=${CONTAINER_NAME} ${IMAGE_NAME})
+                          CID=$(docker run -d -p 80:80  --restart unless-stopped --name=${CONTAINER_NAME} ${IMAGE_NAME})
                           echo CONTAINER_ID=${CID}
                           CIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${CID})
                           echo CONTAINER_IP=${CIP}
