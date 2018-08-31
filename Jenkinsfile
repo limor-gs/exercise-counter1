@@ -16,7 +16,7 @@ pipeline {
             steps{
                     sh '''CONTAINER_NAME=counter-${BRANCH_NAME}
                           IMAGE_NAME=counter-${BRANCH_NAME}-img
-                          if [[ docker ps -q -f name=${CONTAINER_NAME} ]];then
+                          if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ];then
                             docker stop ${CONTAINER_NAME}
                             docker rm ${CONTAINER_NAME}
                           fi
