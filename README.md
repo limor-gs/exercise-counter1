@@ -1,7 +1,6 @@
 # devos-exercise
 
 
-
 ## Running Instructions
 
 ```
