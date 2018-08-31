@@ -1,6 +1,6 @@
 FROM python:3.6
 
-COPY app.py config.py .
+COPY app.py config.py ./
 
 EXPOSE 80
 
