@@ -27,8 +27,8 @@ pipeline {
                           echo CONTAINER_ID=${CID}
                           CIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${CID})
                           echo CONTAINER_IP=${CIP}
-                          echo Increase counter using: curl -X POST "http://${CIP}:80/"
-                          echo Display counter using: curl http://${CIP}:80/'''
+                          echo Increase counter using: curl -X POST "http://${CIP}:5000/"
+                          echo Display counter using: curl http://${CIP}:5000/'''
                    
             }
         }
