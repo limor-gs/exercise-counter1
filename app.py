@@ -24,11 +24,12 @@ class Counter():
 
 
 @app.route('/', methods=['GET', 'POST'])
-def hello():	
-	print("hello !!!!!!!!!!")
-	if request.method == 'POST':		
+def hello():
+	if request.method == 'POST':
+		print("post !!!!!!!!!!")
 		response = f"Increasing counter. new value: {Counter().increase()} "		
-	else:		
+	else:	
+		print("get !!!!!!!!!!")
 		response = f"Counter value: {int(Counter().value())}"
 	return response
 
