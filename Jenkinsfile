@@ -16,10 +16,10 @@ pipeline {
             steps{
                     sh '''CONTAINER_NAME=counter-${BRANCH_NAME}
                           IMAGE_NAME=counter-${BRANCH_NAME}-img
-                          if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ];then
+                          if [ "$(docker ps -q --no-trunc -f name=^/$CONTAINER_NAME$)" ];then
                             docker stop ${CONTAINER_NAME}
                           fi
-                          if [ "$(docker ps -a -q -f name=$CONTAINER_NAME)" ];then
+                          if [ "$(docker ps -a -q --no-trunc -f name=^/$CONTAINER_NAME$)" ];then
                             docker rm ${CONTAINER_NAME}
                           fi
                           docker build -t ${IMAGE_NAME} .
