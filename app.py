@@ -26,9 +26,9 @@ class Counter():
 @app.route('/', methods=['GET', 'POST'])
 def hello():
 	if request.method == 'POST':
-		response = f"Increasing!!! counter. new value: {Counter().increase()} "		
+		response = f"Increasing counter. new value: {Counter().increase()} "		
 	else:
-		response = f"Counter!!! value: {int(Counter().value())}"
+		response = f"Counter value: {int(Counter().value())}"
 	return response
 
 if __name__ == '__main__':    	
