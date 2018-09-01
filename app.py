@@ -23,7 +23,7 @@ class Counter():
 		return self.redis.get(self.app_id) or '0'
 
 
-@app.route('/dev', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def hello():
 	if request.method == 'POST':
 		response = f"Increasing counter. new value: {Counter().increase()} "		
