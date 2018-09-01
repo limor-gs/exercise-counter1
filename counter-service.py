@@ -1,4 +1,3 @@
-
 from redis import StrictRedis
 from flask import Flask, request
 
