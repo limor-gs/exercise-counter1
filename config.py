@@ -3,7 +3,7 @@ import uuid
 
 
 with open('/etc/hostname', 'r') as myfile:
-	data = myfile.read()
+	data = myfile.read().strip()
 APP_ID_PATH = f"/tmp/app/app_id_{data}"
 if os.path.exists(APP_ID_PATH):
 	with open(APP_ID_PATH) as app_id_file:
