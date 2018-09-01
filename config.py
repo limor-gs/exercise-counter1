@@ -2,7 +2,9 @@ import os
 import uuid
 
 
-APP_ID_PATH = '/tmp/app/app_id'
+with open('/etc/hostname', 'r') as myfile:
+	data = myfile.read()
+APP_ID_PATH = f"/tmp/app/app_id_{data}"
 if os.path.exists(APP_ID_PATH):
 	with open(APP_ID_PATH) as app_id_file:
 		app_id = app_id_file.read()
