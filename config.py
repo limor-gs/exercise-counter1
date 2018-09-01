@@ -2,7 +2,7 @@ import os
 import uuid
 
 
-APP_ID_PATH = '/tmp/app_id'
+APP_ID_PATH = '/tmp/app/app_id'
 if os.path.exists(APP_ID_PATH):
 	with open(APP_ID_PATH) as app_id_file:
 		app_id = app_id_file.read()
